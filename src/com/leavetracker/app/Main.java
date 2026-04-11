@@ -13,5 +13,37 @@ public class Main {
         System.out.println(employee2);
         System.out.println(request1);
         System.out.println(request2);
+
+        // lets create get an an employees details and their remaining level balance. 
+        System.out.println("Employee Name: " + employee1.getEmpName()); 
+        System.out.println("Employee Leave Balance: " + employee1.getEmpLeaveBalance()); 
+
+        // lets lets employee details validations: 
+        employee1.setEmpName(null);
+        employee1.setEmpName(" ");
+        employee1.setEmpEmail("famguy");
+        employee1.setEmpEmail("famguy@email.com");
+
+        // lets also test set employee leave balance validations: 
+        employee1.setEmpLeaveBalance(-5);
+        employee1.setEmpLeaveBalance(30);
+
+        // lets test the leave request validation 
+        LeaveRequest leavereq1 = new LeaveRequest("2026-04-15", "2026-04-20", "Pending");
+        leavereq1.setStatus("Banana");
+        leavereq1.setStatus("Approved");
+        System.out.println(leavereq1);
+
+        //lets create a new instance of an employee and make them apply for a leave
+        Employee employee_3 = new Employee(103, "Kofi Boateng", "Finance", "kofi@company.com");
+        LeaveRequest leavereq2 = new LeaveRequest("2026-05-01", "2026-05-06", "Pending"); 
+        System.out.println("Employee Leave Balance Before: " + employee_3.getEmpLeaveBalance());
+
+        employee_3.applyLeaveRequest(leavereq2);
+
+        System.out.println("Employee Leave Balance After Request: " + employee_3.getEmpLeaveBalance()); 
+        System.out.println("Employee Leave Request Status: " + leavereq2.getStatus());
+
+
     }
 }
