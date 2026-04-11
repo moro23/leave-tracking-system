@@ -37,7 +37,12 @@ public class LeaveRequest {
     }
 
     public void setStatus(String status){
-        this.status = status; 
+        if (status.equals("Pending") || status.equals("Approved") || status.equals("Denied") ){
+            this.status = status; 
+        }else{
+            System.out.println("");
+        }
+      
     }
 
     public String toString(){
