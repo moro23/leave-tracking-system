@@ -1,3 +1,5 @@
+package com.leavetracker.model; 
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -84,10 +86,10 @@ public class Employee {
         LocalDate endDate = LocalDate.parse(request.getEndDate());
         
         // compute the actual leave days from the end and start date
-        int atualLeaveDays = (int) ChronoUnit.DAYS.between(starDate, endDate);
+        int actualLeaveDays = (int) ChronoUnit.DAYS.between(starDate, endDate);
 
         //check if the remaning leavedays is greater or eqaul to the actual leave days requestsed 
-        if (empLeaveBalance >= atualLeaveDays){
+        if (empLeaveBalance >= actualLeaveDays){
             // substract the actualLeaveDays from the emp leave balance and return the new balance
             empLeaveBalance -= actualLeaveDays; 
             request.setStatus("Approved");
