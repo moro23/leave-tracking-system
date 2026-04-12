@@ -9,9 +9,16 @@ public class Main {
         Employee employee1 = new Employee(101, "Kwame Asante", "Engineering", "kwame@company.com"); 
         Employee employee2 = new Employee(102, "Ama Mensah", "Marketing", "ama@company.com"); 
 
+        // lets create a new employee using the default constructor
+        Employee employee3 = new Employee(); 
+        System.out.println("Employee Details Before: -----"); 
+        employee3.setEmpName("Linda Samuel");
+        employee3.setEmpDept("Front-Desk");
+        employee3.setEmpEmail("slinda@company.com");
+
         //lets create two instances of a Leave requests
-        LeaveRequest request1 = new LeaveRequest("2026-04-15", "2026-04-20", "Pending"); 
-        LeaveRequest request2 = new LeaveRequest("2026-05-01", "2026-05-05", "Approved"); 
+        LeaveRequest request1 = new LeaveRequest(001, "2026-04-15", "2026-04-20", "Pending", "Going on Vacation"); 
+        LeaveRequest request2 = new LeaveRequest(002, "2026-05-01", "2026-05-05", "Approved", "Going on a Funeral"); 
 
         // lets prints to verify 
         System.out.println(employee1);
@@ -34,14 +41,14 @@ public class Main {
         employee1.setEmpLeaveBalance(30);
 
         // lets test the leave request validation 
-        LeaveRequest leavereq1 = new LeaveRequest("2026-04-15", "2026-04-20", "Pending");
+        LeaveRequest leavereq1 = new LeaveRequest(001, "2026-04-15", "2026-04-20", "Pending", "Going on Vacation");
         leavereq1.setStatus("Banana");
         leavereq1.setStatus("Approved");
         System.out.println(leavereq1);
 
         //lets create a new instance of an employee and make them apply for a leave
         Employee employee_3 = new Employee(103, "Kofi Boateng", "Finance", "kofi@company.com");
-        LeaveRequest leavereq2 = new LeaveRequest("2026-05-01", "2026-05-06", "Pending"); 
+        LeaveRequest leavereq2 = new LeaveRequest(002, "2026-05-01", "2026-05-05", "Approved", "Going on a Funeral"); 
         System.out.println("Employee Leave Balance Before: " + employee_3.getEmpLeaveBalance());
 
         employee_3.applyLeaveRequest(leavereq2);

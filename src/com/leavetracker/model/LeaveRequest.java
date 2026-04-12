@@ -2,15 +2,28 @@ package com.leavetracker.model;
 
 public class LeaveRequest {
 
+    private int requestId;
     private String startDate; 
     private String endDate; 
     private String status; 
+    private String reason; 
 
+    // lets create a default constructor 
+    public LeaveRequest(){
+        this.requestId = 0;
+        this.startDate = ""; 
+        this.endDate = ""; 
+        this.status = "Pending";
+        this.reason = "";
+    }
 
-    public LeaveRequest(String startDate, String endDate, String status){
+    // lets create a parameterized constructor
+    public LeaveRequest(int requestId, String startDate, String endDate, String status, String reason){
+        this.requestId = requestId; 
         this.startDate = startDate; 
         this.endDate = endDate;
         this.status = status; 
+        this.reason = reason; 
     }
 
     //lets create getters 
@@ -42,11 +55,12 @@ public class LeaveRequest {
         if (status.equals("Pending") || status.equals("Approved") || status.equals("Denied") ){
             this.status = status; 
         }else{
-            System.out.println("");
+            System.out.println("Invalid Status, must be either Pending, Approved, or Denied.");
         }
       
     }
 
+    @Override
     public String toString(){
         return "Start Date: " + startDate + ", End Date: " + endDate + " , Status: " + status;
     }

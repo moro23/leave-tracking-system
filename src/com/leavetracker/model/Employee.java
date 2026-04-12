@@ -14,8 +14,15 @@ public class Employee {
     // lets set the leave balance of an employee at the beginning of the year.
     private int empLeaveBalance = 40 ; 
 
+    // lets create a default constructor 
+    public Employee(){
+        this.empID = 0; 
+        this.empName = ""; 
+        this.empDept = ""; 
+        this.empEmail = "no-valid@email.com";
+    }
 
-    // lets create the constructor 
+    // lets create a parameterized constructor 
     public Employee(int EmpID, String EmpName, String EmpDept, String EmpEmail){
         this.empID = EmpID; 
         this.empName = EmpName; 
@@ -46,8 +53,8 @@ public class Employee {
 
     // lets create setters 
     public void setEmpName(String empName){
-        if (empName.isEmpty()){
-            System.err.println("Employee name cannot be empty.");
+        if (empName == null || empName.trim().isEmpty()){
+            System.err.println("Employee name cannot be null or empty.");
         }else{
             this.empName = empName;
         }
@@ -58,8 +65,8 @@ public class Employee {
     }
 
     public void setEmpEmail(String empEmail){
-        if (empEmail == null || empEmail.contains("@")){
-          System.out.println("Employee email must be a valid email address");
+        if (empEmail == null || !empEmail.contains("@")){
+          System.out.println("Employee email must be a valid email address or cannot be empty");
         }else{
             this.empEmail = empEmail;
         }
@@ -101,7 +108,7 @@ public class Employee {
 
     }
 
-
+    @Override
     public String toString(){
         return "EmpId: " + empID + " , Name: " + empName + " , Department: " + empDept + " , Email: " + empEmail;
     }
