@@ -1,3 +1,8 @@
+package com.leavetracker.app; 
+
+import com.leavetracker.model.Employee; 
+import com.leavetracker.model.LeaveRequest; 
+
 public class Main {
     public static void main(String s[]){
         // lets create an instance of an Employee with the following details 
