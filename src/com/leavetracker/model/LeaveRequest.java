@@ -1,3 +1,5 @@
+package com.leavetracker.model; 
+
 public class LeaveRequest {
 
     private String startDate; 
